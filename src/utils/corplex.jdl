@@ -1,0 +1,232 @@
+
+entity Region {
+	name String
+}
+
+enum SubjectClass{
+	SCIENCE, ARTS, COMMERCIAL
+}
+
+enum Level{
+ONE, TWO, THREE, FOUR, FIVE, SIX , SEVEN, FORM1, FORM2, FORM3, FORM4,FORM5, FORM6
+}
+
+enum Language {
+    ENGLISH, VENECULAR
+}
+
+enum NewsEventCategory{
+	SOCIAL, EDUCATIONAL, SPORTS
+}
+
+
+entity Country {
+	name String
+}
+
+entity School {
+    name String required
+    address String required
+    phone String
+    email String
+}
+
+entity Student {
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    dob Instant required
+    phone String required
+    email String
+    level Level required
+}
+
+entity Teacher{
+	title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+}
+
+entity Guardian {
+	title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+}
+
+entity Agency {
+    title String required
+	firstName String required
+    lastName String required
+    idNumber String required
+    address String required
+    phone String required
+    email String
+}
+
+entity Subject {
+	name String required
+	classfication SubjectClass required,
+	level Level required,
+	
+}
+
+entity Lesson {
+	name String required
+	startDate Instant,
+	endDate Instant,
+	language Language
+}
+
+entity Lecture{
+	name String required
+    content TextBlob required
+    picture ImageBlob
+}
+
+entity Example{
+	name String required
+    content TextBlob required
+    picture ImageBlob
+}
+
+entity Exercise{
+	name String required
+    question String required
+    answer String required
+    explanation TextBlob
+    
+}
+
+entity ExerciseAnswer{
+    answer TextBlob required
+    explanation TextBlob
+    
+}
+
+entity ExerciseMark{
+    total Integer
+    mark Integer
+}
+
+entity Test{
+	name String required
+    question String required
+    answer String required
+    explanation TextBlob
+    level Level required
+}
+
+entity TestAnswer{
+    answer TextBlob required
+    explanation TextBlob
+    
+}
+entity TestMark{
+    total Integer
+    mark Integer
+}
+
+entity Exam {
+	name String required
+    question String required
+    answer String required
+    explanation TextBlob
+    level Level required
+}
+
+entity ExamAnswer{
+    answer TextBlob required
+    explanation TextBlob
+    
+}
+entity ExamMark{
+    total Integer
+    mark Integer
+}
+
+entity Attachment{
+	name String required
+    fileType String required
+    content Blob required
+}
+
+entity News{
+	topic String required
+    content TextBlob required
+    excerpt String required
+    category NewsEventCategory required
+}
+
+entity Calenda{
+	eventName String required
+    description String 
+    catgory NewsEventCategory required
+    eventStartDate Instant required
+    eventEndDate Instant required
+    location String required
+}
+entity Contact{
+    fullname String required
+    phone String required
+    email String 
+    message TextBlob required
+}
+
+relationship ManyToMany {
+	Student{studentSchool(id)} to School
+    //Student{studentTeacher(id)} to Teacher
+    Student{subject(id)} to Subject
+    Student{lesson(id)} to Lesson
+    Teacher{subject(id)} to Subject
+    Teacher{school(id)} to School
+    
+
+}
+
+relationship ManyToOne {
+	Student{region} to Region
+    Student{guardian} to Guardian
+    Student{agency} to Agency
+    Lesson{subject} to Subject
+    Example{lesson} to Lesson
+    TestMark{student} to Student
+    TestMark{test} to Test
+    ExerciseMark{student} to Student
+    ExerciseMark{exercise} to Exercise
+    ExamMark{student} to Student
+    ExamMark{exam} to Exam
+    Attachment{lesson} to Lesson
+    Lesson{teacher} to Teacher
+
+
+}
+
+relationship OneToOne {
+	Lecture{lesson} to Lesson
+    Exercise{lesson} to Lesson
+}
+
+
+
+
+
+
+// Set pagination options
+// paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
