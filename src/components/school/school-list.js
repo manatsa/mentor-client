@@ -40,13 +40,12 @@ const SchoolList = () =>{
         { title: "Email Address", field: "email", resizeable:true },
         { title: "Phone Number", field: "phone", resizeable:true },
         { title: "Created By", field: "creator", resizeable:true },
-        { title: "Create Date", field: "createDate", resizeable:true },
+
 
     ];
 
     const handleEditModal=(rowData)=>{
         setSchool(rowData);
-        console.log(JSON.stringify(data))
         setShowModalDialog(true)
     }
 
@@ -103,7 +102,12 @@ const SchoolList = () =>{
                     <Modal.Title variant="primary">New User</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <SchoolItem schoolList={JSON.stringify(data)} school={JSON.stringify(school)} addSchoolHandler={addSchoolHandler} />
+                    <SchoolItem schoolList={JSON.stringify(data)}
+                                school={JSON.stringify(school)}
+                                addSchoolHandler={addSchoolHandler}
+                                setShowModalDialog={setShowModalDialog}
+                                user={user}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="d-flex justify-content-end">

@@ -32,7 +32,7 @@ const Home = () => {
 
             callApi();
         }else{
-            console.log('this user is not admin')
+            //console.log('this user is not admin')
         }
 
     }, []);

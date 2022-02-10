@@ -2,142 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a96f3f8d-15d7-40e4-8bac-7907e3e748d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mentor-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/cap.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setupProxy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/404.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/assets/cap.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/assets/icons/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/assets/icons/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/assets/icons/info.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/assets/icons/warning.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/audio/song.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/back_to_school_kids.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/grey_scale_girl.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/redcap.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/student.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/home/student_studying.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/AdminProtectedRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/ProtectedRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/StudentProtectedRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/TeacherProtectedRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/auth-context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/authProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/useAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/authentication/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/authentication/dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/authentication/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/authentication/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/authentication/navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admins/administration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admins/studentAdmin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admins/teacherAdmin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/audio/audio-player.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/calendar/calendar-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/calendar/calendar-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/attachment/attachments-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/attachment/attachments-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/examples/examples-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/examples/examples-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/exams/exams-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/exams/exams-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/exercises/exercises-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/exercises/exercises-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/lessons/lessons-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/lessons/lessons-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/tests/tests-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/tests/tests-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/topics/topics-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/content/topics/topics-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/financials/financials-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/financials/financials-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/general/about.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/general/contact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/general/notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/general/profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/guardians/guardians-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/guardians/guardians-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/news/news-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/news/news-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/school/school-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/school/school-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/student-portal/student-exams-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/student-portal/student-exercise-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/student-portal/student-lesson-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/students/student-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/students/students-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/subjects/subjects-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/subjects/subjects-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/tableIcons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/teachers/teachers-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/teachers/teachers-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/admin/reset-password.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/change-password.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/login/Login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/login/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/users-list-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/users/users-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/alert/alert-context .js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/alert/alert-context-provider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/alert/use-alert-context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/general/general-context .js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/general/general-context-provider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/general/use-general-context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/login/login-context .js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/login/login-context-provider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/login/use-login-context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/toast/toast-context .js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/toast/toast-context-provider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/toast/use-toast-context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/errorBoundary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/IUser.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/candidate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/contact.model.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/candidateService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/corporateService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/fetcher.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/user.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/corplex.jdl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/corplex.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/footer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/email.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/first-name.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/fullname.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/last-name.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/phone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/notification/alerting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/notification/loading.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/notification/notification.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/notification/toasting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/notification/toasty-pending.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/static-data/static-api-calls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/validations/email-validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/table-options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/lectures/lectures-list-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/lectures/lectures-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/school/school-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/school/school-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/school/school-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/school/school-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tableIcons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableIcons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/users/users-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/users-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/fetcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/fetcher.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +113,7 @@
     <property name="node.js.selected.package.eslint" value="C:\Portabes\Dev\REACT\mentor-client\node_modules\eslint" />
     <property name="node.js.selected.package.standard" value="C:\Portabes\Dev\REACT\mentor-client\node_modules\eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -264,7 +140,8 @@
       <workItem from="1644301944059" duration="388000" />
       <workItem from="1644303215583" duration="3697000" />
       <workItem from="1644309613434" duration="3314000" />
-      <workItem from="1644332845990" duration="29156000" />
+      <workItem from="1644332845990" duration="31111000" />
+      <workItem from="1644407019573" duration="23527000" />
     </task>
     <servers />
   </component>
@@ -301,6 +178,10 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.vscode/settings.json">

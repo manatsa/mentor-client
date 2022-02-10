@@ -65,7 +65,7 @@ const getFetchWithProps = async (url, user,message) => {
     return null;
 };
 
-const getFetchWithPropsPlain = async (url, user,message) => {
+const getFetchWithPropsPlain = async (url, user) => {
     try {
 
           return  fetch(url, {
@@ -82,11 +82,29 @@ const getFetchWithPropsPlain = async (url, user,message) => {
     return null;
 };
 
+const getFetchWithPropsPlainForUser = async (url, user) => {
+    try {
+
+        return  fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + user?.token
+            }
+        }).then(response=>response.json())
+
+    } catch (error) {
+        console.log("error", error);
+    }
+    return null;
+};
 
 
 
 
-const postFetch = async (url, user, data) => {
+
+
+const postFetch = async (url, user, data, msg) => {
     try {
         const response = await toast.promise(
             fetch(url, {
@@ -99,7 +117,7 @@ const postFetch = async (url, user, data) => {
             }), {
             pending: {
                 render({ data }) {
-                    return <ToastPending />
+                    return <ToastPending msg={msg}/>
                 }
             },
             type: 'warning',
@@ -117,9 +135,9 @@ const postFetch = async (url, user, data) => {
     return null;
 };
 
-const putFetch = async (url, user, data) => {
+const putFetch = async (url, user, data,msg) => {
     try {
-        console.log(user)
+        //console.log(user)
         const response = await toast.promise(
             fetch(url, {
                 method: 'PUT',
@@ -131,7 +149,7 @@ const putFetch = async (url, user, data) => {
             }), {
                 pending: {
                     render({ data }) {
-                        return <ToastPending />
+                        return <ToastPending msg={msg} />
                     }
                 },
                 type: 'warning',
@@ -151,4 +169,4 @@ const putFetch = async (url, user, data) => {
 
 
 
-export { getFetch, getFetchWithProps,getFetchWithPropsPlain, postFetch, putFetch };
+export { getFetch, getFetchWithProps,getFetchWithPropsPlain, getFetchWithPropsPlainForUser, postFetch, putFetch };

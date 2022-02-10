@@ -18,6 +18,8 @@ import ViewColumn from "@material-ui/icons/ViewColumn";
 import GroupAdd from '@material-ui/icons/GroupAdd';
 import Cached from '@material-ui/icons/Cached';
 import FlashOn from '@material-ui/icons/FlashOn';
+import Refresh from '@material-ui/icons/Refresh';
+
 
 const TableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} style={{ color: '#198754' }} />),
@@ -40,6 +42,7 @@ const TableIcons = {
     Deactivate: forwardRef((props, ref) => <FlashOn {...props} ref={ref} style={{ color: 'red' }} />),
     Activate: forwardRef((props, ref) => <GroupAdd {...props} ref={ref} style={{ color: '#198754', paddingRight:'3px' }} />),
     Reset: forwardRef((props, ref) => <Cached {...props} ref={ref} style={{ color: 'orange' }} />),
+    Refresh: forwardRef((props, ref) => <Refresh {...props} ref={ref} style={{ color: '#198754' }} />),
 };
 
 export default TableIcons;

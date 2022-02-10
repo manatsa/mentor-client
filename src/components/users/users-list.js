@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
-import MaterialTable from "material-table";
+//import MaterialTable from "material-table";
 import {Link, useNavigate} from 'react-router-dom'
-//import MaterialTable from '@material-table/core';
+import MaterialTable from '@material-table/core';
 import TableIcons from "../tableIcons";
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button'
@@ -10,6 +10,7 @@ import useAuth from "../../auth/useAuth";
 import UserListItem from "./users-list-item";
 import Form from 'react-bootstrap/Form'
 import {toast, Zoom} from "react-toastify";
+import {ExportCsv, ExportPdf} from "@material-table/exporters";
 
 
 const UsersList = () => {
@@ -70,7 +71,7 @@ const UsersList = () => {
         setTimeout(() => {
 
         }, 1000)
-        window.location.reload(true);
+        //window.location.reload(true);
     }
 
     const addUserHandler = (user, isNew) => {
@@ -79,7 +80,7 @@ const UsersList = () => {
             userlist.push(user);
             setData(userlist)
             setTimeout(() => { }, 100)
-            window.location.reload(true);
+            //window.location.reload(true);
         }else{
             let list=data.filter(u=>u.id!=user.id);
             setData(list);
@@ -88,7 +89,7 @@ const UsersList = () => {
             //window.location.reload(true);
         }
 
-        window.location.reload(true);
+        //window.location.reload(false);
     }
 
     const handlePassRestForm= async (e)=>{
@@ -175,14 +176,20 @@ const UsersList = () => {
     ];
 
     const options = {
-        exportButton: true,
         grouping: true,
         search: true,
         sorting: true,
         columnsButton: true,
         actionsColumnIndex: -1,
         pageSize: 5,
-        pageSizeOptions: [5, 10, 20, 50, 100]
+        pageSizeOptions: [5, 10, 20, 50, 100],
+        exportMenu: [{
+            label: 'Export PDF',
+            exportFunc: (cols, datas) => ExportPdf(cols, datas, 'Schools List')
+        }, {
+            label: 'Export CSV',
+            exportFunc: (cols, datas) => ExportCsv(cols, datas, 'Schools List')
+        }]
     }
 
     const actions =
@@ -202,6 +209,12 @@ const UsersList = () => {
                 tooltip: "Add",
                 isFreeAction: true,
                 onClick: openModal,
+            },
+            {
+                icon: TableIcons.Refresh,
+                tooltip: "Refresh",
+                isFreeAction: true,
+                onClick: ()=>window.location.reload(),
             },
         ];
 
