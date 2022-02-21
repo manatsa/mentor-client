@@ -2,18 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a96f3f8d-15d7-40e4-8bac-7907e3e748d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/table-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/assets/icons/file-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/file-uploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/users/profile/profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/admin-routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/common-routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/student-routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/teachers-routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/auto-chip-input/aut-chip-input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/auto-chip-with-children/auto-chip-with-children.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/constants/levels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/chip-auto-suggest/chip-input-auto-suggest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/form-elements/chip-auto-suggest/react-auto-suggest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/supernav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/404.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/404.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/AdminProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/AdminProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/StudentProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/StudentProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/TeacherProtectedRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/TeacherProtectedRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/authProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/authProvider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/attachment/attachments-list-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/attachment/attachments-list-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content/attachment/attachments-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/attachment/attachments-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/content/lectures/lectures-list-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list-item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/content/lectures/lectures-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/content/lectures/lectures-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/school/school-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/school/school-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/guardians/guardians-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/guardians/guardians-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/school/school-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/school/school-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tableIcons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableIcons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/students/student-list-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/students/student-list-item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/students/students-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/students/students-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/subjects/subjects-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/subjects/subjects-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table-options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table-options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/teachers/teachers-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/teachers/teachers-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/users/register.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/users/users-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/users/users-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/fetcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/fetcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/footer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +134,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -114,7 +143,18 @@
     <property name="node.js.selected.package.standard" value="C:\Portabes\Dev\REACT\mentor-client\node_modules\eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="C:\Portabes\Dev\mentor-app\mentor-client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Portabes\Dev\mentor-app\mentor-client\src" />
+      <recent name="C:\Portabes\Dev\mentor-app\mentor-client\src\assets\assets\icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Portabes\Dev\mentor-app\mentor-client\src\utils\auto-chip-input" />
+      <recent name="C:\Portabes\Dev\mentor-app\mentor-client\src\utils\form-elements\chip-auto-suggest" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -141,7 +181,16 @@
       <workItem from="1644303215583" duration="3697000" />
       <workItem from="1644309613434" duration="3314000" />
       <workItem from="1644332845990" duration="31111000" />
-      <workItem from="1644407019573" duration="23527000" />
+      <workItem from="1644407019573" duration="45497000" />
+      <workItem from="1644563404110" duration="38472000" />
+      <workItem from="1644653644193" duration="49999000" />
+      <workItem from="1644748578175" duration="12193000" />
+      <workItem from="1644820729979" duration="4588000" />
+      <workItem from="1644953022760" duration="52038000" />
+      <workItem from="1645290386730" duration="21341000" />
+      <workItem from="1645373407629" duration="17382000" />
+      <workItem from="1645393200661" duration="177000" />
+      <workItem from="1645393600973" duration="1368000" />
     </task>
     <servers />
   </component>

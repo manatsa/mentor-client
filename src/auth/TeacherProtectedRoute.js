@@ -12,10 +12,10 @@ const TeacherProtectedRoute = ({ children }) => {
     const user = JSON.parse(login);
     const auths = user?.authorities;//.map(a => a.name);
 
-    console.log('TEACHER ROUTES:',auths.includes('ROLE_ADMIN'))
+    //console.log('TEACHER ROUTES:',auths?.includes('ROLE_ADMIN'))
 
 
-    if (user?.token && (auths.includes('ROLE_ADMIN') || auths.includes('ROLE_TEACHER') || auths.includes('ROLE_HEAD'))) {
+    if (user?.token && (auths?.includes('ROLE_ADMIN') || auths?.includes('ROLE_TEACHER') || auths?.includes('ROLE_HEAD'))) {
         return children;
     }
 

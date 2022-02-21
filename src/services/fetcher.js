@@ -44,16 +44,12 @@ const getFetchWithProps = async (url, user,message) => {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + user?.token
                 }
-            }), {
+            }).catch(e=>{console.error(e)}), {
                 pending: {
                     render({ data }) {
                         return <ToastPending msg={message} />
                     }
                 },
-                type: 'warning',
-                icon: '',
-                position: 'top-center',
-                transition: Zoom,
                 error: 'Error loading data.'
             }
         );

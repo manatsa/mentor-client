@@ -14,7 +14,7 @@ const StudentProtectedRoute = ({ children }) => {
     let auths = user?.authorities;//.map(a => a.name);
 
 
-    if (user?.token && (auths.includes('ROLE_ADMIN') || auths.includes('ROLE_TEACHER') || auths.includes('ROLE_STUDENT') || auths.includes('ROLE_HEAD'))) {
+    if (user?.token && (auths?.includes('ROLE_ADMIN') || auths?.includes('ROLE_TEACHER') || auths?.includes('ROLE_STUDENT') || auths?.includes('ROLE_HEAD'))) {
         return children;
     }
 

@@ -7,6 +7,7 @@ import TableIcons from "../tableIcons";
 import SchoolItem from "./school-item";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Options from "../table-options";
 
 
 const SchoolList = () =>{
@@ -15,21 +16,26 @@ const SchoolList = () =>{
     const[loading, setLoading] =useState(false)
     const [showModalDialog, setShowModalDialog] =useState(false)
     const[school, setSchool] =useState(null)
+    const [page, setPage] = useState(0)
+    const [pageSize, setPageSize] = useState(5)
 
     const login=localStorage.getItem('user');
     const user=JSON.parse(login);
 
-    useEffect(()=>{
-        setLoading(true)
-        const fetchSchools=async ()=>{
-            let result= await getFetchWithPropsPlain('/schools',user,'Please wait... Fetching list of schools.');
-            setData(result);
-            setLoading(false)
+
+    Options.exportMenu= [{
+        label: 'Export PDF',
+        exportFunc: async (cols, datas) => {
+            let res=await getFetchWithPropsPlain('/schools',user,'Please wait... Fetching Data.')
+            ExportPdf(cols, res.data, 'Schools List')
         }
-
-        fetchSchools();
-    },[])
-
+    }, {
+        label: 'Export CSV',
+        exportFunc: async (cols, datas) => {
+            let res=await getFetchWithPropsPlain('/schools',user,'Please wait... Fetching Data.')
+            ExportCsv(cols,res.data , 'Schools List')
+        }
+    }]
 
  //String name;String address;String phone;String email;
     const columns = [
@@ -58,22 +64,6 @@ const SchoolList = () =>{
         setShowModalDialog(true)
     }
 
-    const options = {
-        grouping: true,
-        search: true,
-        sorting: true,
-        columnsButton: true,
-        actionsColumnIndex: -1,
-        pageSize: 5,
-        pageSizeOptions: [5, 10, 20, 50, 100],
-        exportMenu: [{
-            label: 'Export PDF',
-            exportFunc: (cols, datas) => ExportPdf(cols, datas, 'Schools List')
-        }, {
-            label: 'Export CSV',
-            exportFunc: (cols, datas) => ExportCsv(cols, datas, 'Schools List')
-        }]
-    }
 
     const actions =
         [
@@ -121,10 +111,44 @@ const SchoolList = () =>{
                 <MaterialTable
                     actions={actions}
                     icons={TableIcons}
-                    options={options}
-                    data={data}
-                    columns={columns}
+                    options={Options}
                     isLoading={loading}
+                    options={Options}
+                    onPageChange={((page, pageSize) =>{
+                        setPage(page);
+                        setPageSize(pageSize)
+                    } )}
+                    onRowsPerPageChange={(pageSize1 => setPageSize(pageSize1))}
+                    data={(query) =>(
+
+                        new Promise((resolve, reject) => {
+                            let url = "/schools?";
+                            url += "size=" + pageSize;
+                            url += "&page=" + page;
+                            fetch(url, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': 'Bearer ' + user?.token
+                                }
+                            })
+                                .then((response) => response.json())
+                                .then((result) => {
+                                    resolve({
+                                        data: result.data.filter(s=>{
+                                            return (s.name.toLowerCase().includes(query.search.toLowerCase())
+                                                || s.address.toLowerCase().includes(query.search.toLowerCase())
+                                            || s.email.toLowerCase().includes(query.search.toLowerCase())
+                                            || s.phone.toLowerCase().includes(query.search.toLowerCase()))
+                                        }),
+                                        rowsPerPage:pageSize,
+                                        page: page,
+                                        totalCount: result.total,
+                                    });
+                                });
+                        }))
+                    }
+                    columns={columns}
                     title={"Schools List"}
                 />
             </div>

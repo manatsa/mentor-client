@@ -78,6 +78,11 @@ nav .navbar-nav li ul li a{
    text-align: center;
 }
 
+  .big-modal{
+    width: 80vw ;  /* Occupy the 90% of the screen width */
+    max-width: 90vw;
+  }
+
 
 
 

@@ -8,7 +8,7 @@ import Toasting from "./utils/notification/toasting";
 import { toast, Zoom } from "react-toastify";
 import useAuth from "./auth/useAuth";
 import useGeneralContext from "./context/general/use-general-context";
-import { getFetchWithProps } from "./services/fetcher";
+import { getFetchWithProps, getFetch } from "./services/fetcher";
 import AudioPlayer from "./components/audio/audio-player";
 import GetAuthorities from "./utils/static-data/static-api-calls";
 
@@ -16,21 +16,27 @@ const Home = () => {
 
 
     const login=localStorage.getItem('user');
-    const  user =login?(JSON.parse(login)):null;
-
+    //console.log("User String :",login)
+    let  user=null;
+    try{
+        user=(login)?JSON.parse(login):null;
+    }catch(e){
+        console.log('USER ERROR :',e);
+    }
     //localStorage.removeItem('user')
 
     useEffect(() => {
         if (user && user?.token &&user?.authorities && user?.authorities.includes('ROLE_ADMIN')) {
-            const url = "/admin/authorities";
+            const url = "/authorities";
             const callApi = async () => {
-                let res = await getFetchWithProps(url, user,'Loading aplication data... Please wait.');
-                let roleString=JSON.stringify(res.map(a => a.name))
+                let res = await getFetch(url, user);
+                console.log(JSON.stringify(res))
+                let roleString=await JSON.stringify(res)
                 //alert(roleString)
                 localStorage.setItem('roles',roleString);
             };
 
-            callApi();
+            //callApi();
         }else{
             //console.log('this user is not admin')
         }

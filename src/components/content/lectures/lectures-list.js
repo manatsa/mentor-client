@@ -10,6 +10,7 @@ import Modal from "react-bootstrap/Modal";
 import Options from "../../table-options";
 import {Link} from "@mui/material";
 import {Image} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 
 const LectureList = () =>{
@@ -23,17 +24,17 @@ const LectureList = () =>{
 
     const login=localStorage.getItem('user');
     const user=JSON.parse(login);
+    const navigate=useNavigate();
 
     useEffect(()=>{
         setLoading(true)
-        const fetchSchools=async ()=>{
+        const fetchLectures=async ()=>{
             let result= await getFetchWithPropsPlainForUser('/lectures',user,'Please wait... Fetching list of schools.');
-            setData(result);
-            console.log("LESSONS: ",result)
+            setData(result?.data||[]);
             setLoading(false)
         }
 
-        fetchSchools();
+        fetchLectures();
     },[])
 
 
@@ -42,10 +43,14 @@ const LectureList = () =>{
 
         { title: "Lecture UID", field: "id"},//, render:(data)=><Button onClick={()=>handleLectureClick(data)}>{data}</Button> },
         { title: "Lecture Name", field: "name"},
-        {title: "Picture Attachment", field: "picture", render:
+        /*{title: "Picture Attachment", field: "picture", render:
                     data=>data?<Link onClick={()=>openPicture(data)} variant={'button'} component={'button'}>
                         Open
-        </Link>:null },
+        </Link>:null },*/
+        {title: "Picture Attachment", field: "picture", render:
+                data=>data?<a href={'data:'+data.pictureContentType+';base64,'+data.picture} target={'_blank'} >
+                    <img src={'data:'+data.pictureContentType+';base64,'+data.picture} width={200} height={100}/>
+        </a>:null },
         { title:"Picture Type", field: "pictureContentType"}
 
 
@@ -56,8 +61,13 @@ const LectureList = () =>{
     }
 
     const handleEditModal=(rowData)=>{
-        setLecture(rowData);
-        setShowModalDialog(true)
+        let lec= JSON.stringify(rowData);
+        console.log("Lecture :",lec);
+        navigate("/lecture-list-item",{
+            state:{
+                lecture:lec
+            }
+        });
     }
 
     const handleModalClose=()=>{
@@ -65,13 +75,12 @@ const LectureList = () =>{
     }
 
     const addLectureHandler=()=>{
-        setLecture(null)
-        setShowModalDialog(true)
+        navigate("/lecture-list-item");
     }
 
     const openPicture=(data)=>{
-        //setPicture(`data:${data.pictureContentType};base64,${data.picture}`);
-        setPicture(`data:image/png;base64,${data.picture}`);
+        setPicture(`data:${data.pictureContentType};base64,${data.picture}`);
+        //setPicture(`data:image/png;base64,${data.picture}`);
 
         console.log("PICTURE: "+picture)
         setShowPic(true);
@@ -116,23 +125,18 @@ const LectureList = () =>{
 
                 </Modal.Body>
             </Modal>
-            <Modal size="lg" variant="primary" show={showModalDialog} onHide={handleModalClose} backdrop="static" keyboard={false}>
+            <Modal size="lg" className={'big-modal'} variant="primary" show={showModalDialog} onHide={handleModalClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title variant="primary">New Lesson</Modal.Title>
+                    <Modal.Title variant="primary">{lecture?.name?lecture.name:'New Lecture'}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <LectureListItem lectures={JSON.stringify(data)}
-                                lecture={JSON.stringify(lecture)}
+                                lecture={JSON.stringify(lecture)||{}}
                                 addLectureHandler={addLectureHandler}
                                 setShowModalDialog={setShowModalDialog}
-                                user={user}
+                                user={JSON.stringify(user)}
                     />
                 </Modal.Body>
-                <Modal.Footer>
-                    <div className="d-flex justify-content-end">
-                        <Button variant="secondary" onClick={handleModalClose}>Close</Button>
-                    </div>
-                </Modal.Footer>
             </Modal>
 
 
@@ -144,7 +148,7 @@ const LectureList = () =>{
                     data={data}
                     columns={columns}
                     isLoading={loading}
-                    title={"List of Lessons"}
+                    title={"List of Lectures"}
                 />
             </div>
         </div>

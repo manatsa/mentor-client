@@ -39,13 +39,17 @@ const AuthProvider = ({ children }) => {
 
 
     const login = async (user) => {
+        //console.log('User Before: '+JSON.stringify(user))
         return fetch('authenticate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(user)
-        }).then(data => data.json())
+        }).then(data => {
+            //console.log("User After :",data.json())
+            return data.json()
+        })
             .catch(e=>{setShowLoginError(true)})
 
     }
@@ -54,7 +58,7 @@ const AuthProvider = ({ children }) => {
     const handleLogin = async (u) => {
         //console.log("USER BEFORE", u);
         const user = await login(u);
-        //console.log(JSON.stringify(user.authorities));
+        //console.log(JSON.stringify(user));
         if (JSON.stringify(user)?.includes('401') || (JSON.stringify(user)?.includes('500')) || !user?.token) {
             setShowLoginError(true)
         }

@@ -5,12 +5,13 @@ import MaterialTable from '@material-table/core';
 import TableIcons from "../tableIcons";
 import Modal from "react-bootstrap/Modal";
 import Button from 'react-bootstrap/Button'
-import {getFetch, putFetch, postFetch, getFetchWithProps} from "../../services/fetcher";
+import {getFetch, putFetch, postFetch, getFetchWithProps, getFetchWithPropsPlain} from "../../services/fetcher";
 import useAuth from "../../auth/useAuth";
 import UserListItem from "./users-list-item";
 import Form from 'react-bootstrap/Form'
 import {toast, Zoom} from "react-toastify";
 import {ExportCsv, ExportPdf} from "@material-table/exporters";
+import Options from "../table-options";
 
 
 const UsersList = () => {
@@ -22,23 +23,26 @@ const UsersList = () => {
     const [data, setData] = useState([]);
     const [showNewPassModal, setShowNewPassModal] =useState(false)
     const [selectedUser, setSelectedUser] =useState(null);
-    const [dummy, setDummy] =useState("")
+    const [page, setPage] = useState(0)
+    const [pageSize, setPageSize] = useState(5)
 
     const login=localStorage.getItem('user');
     const user=JSON.parse(login);
     const navigate=useNavigate();
 
-    useEffect(() => {
-        const url = "/admin/users";
-        const callApi = async () => {
-            let res = await getFetchWithProps(url, user,'Getting List of Users, Please wait.');
-            //console.log(JSON.stringify(res))
-            setData(res);
-        };
-
-        callApi();
-
-    }, []);
+    Options.exportMenu= [{
+        label: 'Export PDF',
+        exportFunc: async (cols, datas) => {
+            let res=await getFetchWithPropsPlain('admin/users',user,'Please wait... Fetching Data.')
+            ExportPdf(cols, res.data, 'Users List')
+        }
+    }, {
+        label: 'Export CSV',
+        exportFunc: async (cols, datas) => {
+            let res=await getFetchWithPropsPlain('admin/students',user,'Please wait... Fetching Data.')
+            ExportCsv(cols,res.data , 'Users List')
+        }
+    }]
 
     const handleModalClose = () => {
         setShowListItemModal(false);
@@ -134,6 +138,8 @@ const UsersList = () => {
             })
         }
 
+        return null
+
     }
 
     const handleUserDeactivation=async (target)=>{
@@ -175,29 +181,41 @@ const UsersList = () => {
         {title: "Authorities", field: "authorities"},
     ];
 
-    const options = {
-        grouping: true,
-        search: true,
-        sorting: true,
-        columnsButton: true,
-        actionsColumnIndex: -1,
-        pageSize: 5,
-        pageSizeOptions: [5, 10, 20, 50, 100],
-        exportMenu: [{
-            label: 'Export PDF',
-            exportFunc: (cols, datas) => ExportPdf(cols, datas, 'Schools List')
-        }, {
-            label: 'Export CSV',
-            exportFunc: (cols, datas) => ExportCsv(cols, datas, 'Schools List')
-        }]
-    }
 
     const actions =
         [
             {
                 icon: TableIcons.Edit,
                 tooltip: "Edit",
-                onClick: (event, rowData) => { return handleEditModal(event, rowData); },
+                onClick: (event, rowData) => handleEditModal(event, rowData),
+            },
+            {
+                icon: TableIcons.Reset,
+                tooltip: 'Reset User Password',
+                onClick: rowData =>{
+                    setSelectedUser(rowData);
+                    setShowNewPassModal(true);
+                    return;
+                },
+            },
+            {
+                icon: TableIcons.Deactivate,
+                openIcon: TableIcons.Deactivate,
+                tooltip: 'Deactivate User',
+                onClick: rowData => {
+                    setSelectedUser(rowData)
+                    handleUserDeactivation(rowData);
+                },
+            },
+            {
+
+                icon: TableIcons.Activate,
+                openIcon: TableIcons.Activate,
+                tooltip: 'Activate User',
+                onClick: rowData => {
+                    setSelectedUser(rowData)
+                    handleUserActivation(rowData);
+                },
             },
             {
                 icon: TableIcons.Delete,
@@ -208,7 +226,7 @@ const UsersList = () => {
                 icon: TableIcons.Add,
                 tooltip: "Add",
                 isFreeAction: true,
-                onClick: openModal,
+                onClick: ()=>openModal(),
             },
             {
                 icon: TableIcons.Refresh,
@@ -270,13 +288,42 @@ const UsersList = () => {
                 title="User List"
                 icons={TableIcons}
                 columns={columns}
-                data={data}
-                options={options}
+                onPageChange={((page, pageSize) =>{
+                    setPage(page);
+                    setPageSize(pageSize)
+                } )}
+                onRowsPerPageChange={(pageSize1 => setPageSize(pageSize1))}
+                data={(query) =>(
+
+                    new Promise((resolve, reject) => {
+                        let url = "admin/users?";
+                        url += "size=" + pageSize;
+                        url += "&page=" + page;
+                        fetch(url, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + user?.token
+                            }
+                        })
+                            .then((response) => response.json())
+                            .then((result) => {
+                                resolve({
+                                    data: result.data,
+                                    rowsPerPage:pageSize,
+                                    page: page,
+                                    totalCount: result.total,
+                                });
+                            });
+                    }))
+                }
+                options={Options}
                 actions={actions}
                 detailPanel={[
                     {
                         tooltip: 'Exapnd user details.',
                         render: rowData => {
+                            console.log("rowdata :",JSON.stringify(rowData))
                             return (
                                 <div
                                     style={{
@@ -324,33 +371,7 @@ const UsersList = () => {
     )
 },
                     },
-{
-    icon: TableIcons.Reset,
-        tooltip: 'Reset User Password',
-            render: rowData => {
-                setSelectedUser(rowData);
-                setShowNewPassModal(true);
-            },
-                    },
-{
-    icon: TableIcons.Deactivate,
-        openIcon: TableIcons.Deactivate,
-        tooltip: 'Deactivate User',
-            render: rowData => {
-                        setSelectedUser(rowData)
-                        handleUserDeactivation(rowData);
-                    },
-                    },
-                    {
 
-                    icon: TableIcons.Activate,
-                    openIcon: TableIcons.Activate,
-                    tooltip: 'Activate User',
-                    render: rowData => {
-                    setSelectedUser(rowData)
-                    handleUserActivation(rowData);
-                },
-                },
                 ]}
 
 />

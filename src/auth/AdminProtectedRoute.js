@@ -13,7 +13,7 @@ const AdminProtectedRoute = ({ children }) => {
     const user = JSON.parse(login);
 
     //console.log("Authorities: ",typeof  user?.authorities)
-    if (user?.token && user?.authorities.includes('ROLE_ADMIN') ) {
+    if (user?.token && user?.authorities?.includes('ROLE_ADMIN') ) {
         //console.log('Has ROLE_ADMIN')
         return children;
     }
